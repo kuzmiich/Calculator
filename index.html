@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+	
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="calculator">
+		<div class="calculator-head">
+			<h1>Кошелёк</h1>
+			<span>Калькулятор транзакций</span>
+		</div>
+
+		<div class="calculator-balance">
+			<div class="calculator-balance-title">
+				<h2 class="text">Баланс</h2>
+				<h2 class="balance"><span id="balance">0</span> BY</h2>
+			</div>
+			<hr>
+
+			<div class="calculator-balance-footer">
+				<div class="income">
+					<h3>Доходы<br><p><span id="income">0</span> BYN</p></h3>
+				</div>
+				<div class="line"></div>
+				<div class="costs">
+					<h3>Расходы<br><p><span id="costs">0</span> BYN</p></h3>
+				</div>
+			</div>
+		</div>
+
+		<div class="calculator-history">
+			<h2>История транзакций</h2>
+
+			<div id ="operations">
+
+			</div>
+		</div>
+
+		<div class="calculator-options">
+			<h3>Новая операция</h3>
+			<div class="switches">
+				<p><input type="radio" checked name="operations" value="replenishment" id="checkbox"> Пополнение</p>
+				<p><input type="radio" name="operations" value="costs"> Расходы</p>
+			</div>
+			<div>
+				<input type="text" placeholder="Наименование операции" class="input" id="operationnamed">
+				<input type="number" placeholder="Введите сумму, BYN" name ="num" size ="6" min ="0" max ="100000" class="input" id="operationnumber">
+			</div>
+			<button class="btn" onclick="main()">Добавить операцию</button>
+		</div>
+
+		<script src="loads.js"></script>
+		<script src="main.js"></script>
+	</header>
+</body>
+</html>
