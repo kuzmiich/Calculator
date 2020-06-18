@@ -1,3 +1,9 @@
+function clr(){
+	localStorage.clear();
+	upload();
+	location.reload();
+}
+
 function is_more_five(blocksArray){
 	let i = 0;
 	while (blocksArray.length >= 5)
@@ -19,7 +25,6 @@ function operation(text, num, operationclass)
 	
 	blocksArray.push(block.outerHTML);
 	
-
 	container.appendChild(block);
 	localStorage.setItem("blocks", JSON.stringify(blocksArray));
 }
@@ -51,8 +56,13 @@ function main()
 	//add operations
 	let operation_name = document.getElementById("operationnamed").value;
 	let operation_number = document.getElementById("operationnumber").value;
-
 	
+	const numLimit = 1000000, nameLimit = 40;
+	if (operation_number > numLimit || operation_name.length > nameLimit){
+		alert("Слишком большое число!");
+		return;
+	}
+
 	let is_add = false;
 	if (operation_name && operation_number){
 		operation(operation_name, operation_number, operation_class);
@@ -77,11 +87,11 @@ function main()
 			costs = edit_costs(costs, money);
 		}
 	}
-	document.getElementById('income').innerHTML = income;
-	document.getElementById('costs').innerHTML = costs;
+	document.getElementById('income').innerHTML = Math.round((income) * 100) / 100;
+	document.getElementById('costs').innerHTML = Math.round((costs) * 100) / 100;
 	let balance = Math.round((income + costs) * 100) / 100;
-	localStorage.setItem('balance', balance);
 	document.getElementById('balance').innerHTML = balance;
 	localStorage.setItem('income', income);
 	localStorage.setItem('costs', costs);
+	localStorage.setItem('balance', balance);
 }
