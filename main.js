@@ -45,7 +45,7 @@ function edit_income(income, money){
 }
 
 function edit_costs(costs, money){
-	return costs -= Number(money[money.length - 1].textContent);
+	return costs += Number(money[money.length - 1].textContent);
 }
 
 function main()
@@ -57,11 +57,22 @@ function main()
 	let operation_name = document.getElementById("operationnamed").value;
 	let operation_number = document.getElementById("operationnumber").value;
 	
+	//foolproof
 	const numLimit = 1000000, nameLimit = 40;
 	if (operation_number > numLimit || operation_name.length > nameLimit){
-		alert("Слишком большое число!");
+		alert("Слишком много данных!");
 		return;
 	}
+	else if(operation_class == 'operation-positive')
+	{
+		operation_number = Math.abs(operation_number);
+	}
+	else if(operation_class == 'operation-negative')
+	{
+		operation_number = -(Math.abs(operation_number));
+	}
+	
+	//
 
 	let is_add = false;
 	if (operation_name && operation_number){
@@ -79,6 +90,7 @@ function main()
 	let costs = document.getElementById('costs');
 	costs = Number(costs.innerHTML);
 	if (is_add){
+		
 		let money = document.querySelectorAll('#money');
 		if (operation_class == "operation-positive"){
 			income = edit_income(income, money);
@@ -87,6 +99,7 @@ function main()
 			costs = edit_costs(costs, money);
 		}
 	}
+
 	document.getElementById('income').innerHTML = Math.round((income) * 100) / 100;
 	document.getElementById('costs').innerHTML = Math.round((costs) * 100) / 100;
 	let balance = Math.round((income + costs) * 100) / 100;
