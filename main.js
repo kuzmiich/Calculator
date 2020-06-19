@@ -85,7 +85,7 @@ function main()
 	
 	//balance
 	let income = document.getElementById('income');
-	income = Number(income.innerHTML);
+	income = Math.abs(Number(income.innerHTML));
 
 	let costs = document.getElementById('costs');
 	costs = Number(costs.innerHTML);
