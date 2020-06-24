@@ -16,17 +16,17 @@
 		<div class="calculator-balance">
 			<div class="calculator-balance-title">
 				<h2 class="text">Баланс</h2>
-				<h2 class="balance"><span id="balance">0</span> BY</h2>
+				<h2 class="balance"><span id="balance"></span> BY</h2>
 			</div>
 			<hr>
 
 			<div class="calculator-balance-footer">
 				<div class="income">
-					<h3>Доходы<br><p><span id="income">0</span> BYN</p></h3>
+					<h3>Доходы<br><p><span id="income"></span> BYN</p></h3>
 				</div>
 				<div class="line"></div>
 				<div class="costs">
-					<h3>Расходы<br><p><span id="costs">0</span> BYN</p></h3>
+					<h3>Расходы<br><p><span id="costs"></span> BYN</p></h3>
 				</div>
 			</div>
 		</div>
@@ -47,14 +47,14 @@
 			</div>
 			<div>
 				<input type="text" placeholder="Наименование операции" class="input" id="operationnamed">
-				<input type="number" placeholder="Введите сумму, BYN" min ="0" max ="1000000" class="input" id="operationnumber">
+				<input type="number" placeholder="Введите сумму, BYN" min ="-1000000" max ="1000000" class="input" id="operationnumber">
 			</div>
 			<button class="btn btn-add" onclick="main()">Добавить операцию</button>
 		</div>
 
 		<button class="btn btn-clear" onclick="clr()">Очистка данных</button>
 
-		<script src="loads.js"></script>
+		<script src="uploads.js"></script>
 		<script src="main.js"></script>
 	</header>
 </body>
