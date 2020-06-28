@@ -58,7 +58,7 @@ function main()
 	let operation_number = document.getElementById("operationnumber").value;
 	
 	//foolproof
-	const numLimit = 1000000, nameLimit = 40;
+	const numLimit = 1000000, nameLimit = 30;
 	if (operation_number > numLimit || operation_name.length > nameLimit){
 		alert("Слишком много данных!");
 		return;
